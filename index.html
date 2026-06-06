@@ -1,1 +1,412 @@
 
+!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Chevalier Card · Agência de IA para Empresas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #F5F5F5;
+            font-family: 'Inter', sans-serif;
+            color: #1A1A1A;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* ========== HEADER ========== */
+        .header {
+            padding: 32px 0;
+            border-bottom: 1px solid #E0E0E0;
+            margin-bottom: 64px;
+        }
+
+        .logo h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 28px;
+            color: #003366;
+            letter-spacing: -0.5px;
+        }
+
+        .logo p {
+            font-size: 12px;
+            color: #666;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 52px;
+            line-height: 1.2;
+            color: #003366;
+            margin-bottom: 24px;
+        }
+
+        .hero-title span {
+            color: #1A1A1A;
+            display: block;
+            font-size: 20px;
+            font-weight: 500;
+            margin-top: 16px;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: #003366;
+            color: white;
+            text-decoration: none;
+            padding: 14px 32px;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: #002244;
+        }
+
+        .hero-stats {
+            background: white;
+            padding: 32px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .stat-item {
+            margin-bottom: 24px;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 48px;
+            color: #003366;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ========== SERVIÇOS ========== */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            font-size: 36px;
+            color: #003366;
+            margin-bottom: 16px;
+        }
+
+        .section-sub {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 48px;
+            border-left: 3px solid #003366;
+            padding-left: 20px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 28px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: 0.2s;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .service-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .service-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* ========== DEPOIMENTOS ========== */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            margin-bottom: 80px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 32px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .quote {
+            font-size: 48px;
+            color: #003366;
+            opacity: 0.3;
+            font-family: serif;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 24px;
+        }
+
+        .testimonial-metric {
+            font-weight: 800;
+            font-size: 28px;
+            color: #003366;
+            margin-bottom: 8px;
+        }
+
+        .client-name {
+            font-weight: 700;
+            margin-top: 16px;
+        }
+
+        .client-title {
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* ========== GARANTIA ========== */
+        .guarantee {
+            background: white;
+            padding: 48px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 80px;
+            border: 1px solid #E0E0E0;
+        }
+
+        .guarantee h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #003366;
+            margin-bottom: 16px;
+        }
+
+        .guarantee p {
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ========== RODAPÉ ========== */
+        .footer {
+            border-top: 1px solid #E0E0E0;
+            padding: 48px 0;
+            text-align: center;
+            font-size: 13px;
+            color: #888;
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-title {
+                font-size: 40px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 20px;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-title {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- HEADER -->
+        <div class="header">
+            <div class="logo">
+                <h1>DIGITAL CHEVALIER CARD</h1>
+                <p>AGÊNCIA DE INTELIGÊNCIA ARTIFICIAL</p>
+            </div>
+        </div>
+
+        <!-- HERO -->
+        <div class="hero">
+            <div>
+                <div class="hero-title">
+                    Transforme seu negócio<br>com o poder da IA
+                    <span>Sites, automação, tráfego pago e resultados reais</span>
+                </div>
+                <div class="hero-description">
+                    Criamos soluções digitais de alta performance para empresas que querem vender mais, 
+                    automatizar processos e crescer com tecnologia de ponta.
+                </div>
+                <a href="#" class="btn-primary">DIAGNÓSTICO GRATUITO →</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">57+</div>
+                    <div class="stat-label">PROJETOS ENTREGUES</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">99%</div>
+                    <div class="stat-label">TAXA DE RETENÇÃO</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5.0</div>
+                    <div class="stat-label">NOTA MÉDIA DOS CLIENTES</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SERVIÇOS -->
+        <div class="section-title">Soluções que geram resultado</div>
+        <div class="section-sub">Do site à automação — cuidamos de tudo enquanto você foca no crescimento.</div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🖥️</div>
+                <h3>Sites & Landing Pages</h3>
+                <p>Sites modernos, rápidos e otimizados para converter visitantes em clientes reais.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🛒</div>
+                <h3>Lojas Virtuais</h3>
+                <p>Venda 24h por dia com integração a WhatsApp, PIX, cartão e muito mais.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <h3>Automação com IA</h3>
+                <p>Atendimentos, respostas e processos automáticos com as melhores IAs do mundo.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📈</div>
+                <h3>Tráfego Pago</h3>
+                <p>Campanhas no Google e Meta para atrair clientes reais com ROI garantido.</p>
+            </div>
+        </div>
+
+        <!-- DEPOIMENTOS -->
+        <div class="section-title">O que dizem nossos clientes</div>
+        <div class="section-sub">Resultados reais de quem confiou na Digital Chevalier Card</div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="quote">"</div>
+                <div class="testimonial-metric">+187% em vendas</div>
+                <div class="testimonial-text">
+                    Em 90 dias, minha loja saiu de R$ 18 mil para R$ 52 mil por mês. 
+                    A automação com IA respondeu 2.400 atendimentos sem intervenção humana.
+                </div>
+                <div class="client-name">Carla Mendes</div>
+                <div class="client-title">Moda Live · Paulo Afonso/BA</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="quote">"</div>
+                <div class="testimonial-metric">ROI 4,8x</div>
+                <div class="testimonial-text">
+                    Custo por lead caiu de R$ 14 para R$ 2,90. Apareço no Google Maps e minha agenda lotou.
+                </div>
+                <div class="client-name">Rodrigo Alves</div>
+                <div class="client-title">Clínica Sanus</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="quote">"</div>
+                <div class="testimonial-metric">+380 leads</div>
+                <div class="testimonial-text">
+                    Em 45 dias de tráfego pago com IA, captamos 380 leads qualificados. O site vende sozinho.
+                </div>
+                <div class="client-name">Fernando Tavares</div>
+                <div class="client-title">Grupo São Francisco</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="quote">"</div>
+                <div class="testimonial-metric">Atendimento 24h</div>
+                <div class="testimonial-text">
+                    Minha clínica nunca mais perdeu paciente fora do horário. A IA atende, agenda e confirma.
+                </div>
+                <div class="client-name">Dra. Lívia França</div>
+                <div class="client-title">Clínica Integrare</div>
+            </div>
+        </div>
+
+        <!-- GARANTIA -->
+        <div class="guarantee">
+            <h3>Garantia de Performance</h3>
+            <p>Se não atingirmos as metas contratadas no primeiro mês, 100% da taxa de gestão é devolvida.<br>Sem letras miúdas. Sem burocracia.</p>
+        </div>
+
+        <!-- RODAPÉ -->
+        <div class="footer">
+            DIGITAL CHEVALIER CARD · AGÊNCIA DE INTELIGÊNCIA ARTIFICIAL<br>
+            Paulo Afonso, Bahia · +55 (75) 99999-9999 · © 2025
+        </div>
+
+    </div>
+</body>
+</html>
